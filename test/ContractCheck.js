@@ -13,7 +13,6 @@ const {
     let alice;
     let bob;
 
-
     it("Should set up the signer", async function(){
         let signers = await ethers.getSigners(); 
         alice = signers[0];
@@ -44,7 +43,6 @@ const {
         expect(tx).to.emit(cc.address, "CertificateAdded").withArgs(certificateContractAddress, chainId, name);
     });
 
-
     it("There should be two certificate ids", async function () {
         // read public variable certificateIds
         let certificateIds = await cc.getCertificateIds();
@@ -66,7 +64,5 @@ const {
         let userValidatedCertificates = await cc.getCertificatedIdsOfCertificatesValidatedByUser(bob.address)
         expect(userValidatedCertificates.length).to.equal(certificateIds.length);
     });
-
-
   });
   
